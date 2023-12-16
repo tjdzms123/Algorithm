@@ -4,24 +4,11 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-let input = '';
+let input = [];
 
 rl.on('line', function (line) {
-    input += line + '\n';
-}).on('close', function () {
-    rotateString90Degrees(input.trim());
+    input = [line];
+}).on('close',function(){
+    str = input[0];
+    [...str].forEach(e=>console.log(e))
 });
-
-function rotateString90Degrees(inputStr) {
-    const lines = inputStr.split('\n');
-    const maxLength = Math.max(...lines.map(line => line.length));
-
-    const rotatedLines = [];
-    for (let i = 0; i < maxLength; i++) {
-        const rotatedLine = lines.map(line => (i < line.length ? line[i] : ' ')).join('');
-        rotatedLines.push(rotatedLine);
-    }
-
-    const rotatedOutput = rotatedLines.join('\n');
-    console.log(rotatedOutput);
-}
