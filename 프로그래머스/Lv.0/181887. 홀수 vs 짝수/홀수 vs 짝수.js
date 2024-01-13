@@ -1,12 +1,12 @@
 function solution(num_list) {
-  const oddSum = num_list
-    .filter((e, idx) => idx % 2 === 0)
-    .reduce((a, b) => a + b);
-  const evenSum = num_list
-    .filter((e, idx) => idx % 2 !== 0)
-    .reduce((a, b) => a + b);
-  if (oddSum === evenSum) {
-    return oddSum;
+  let odd = 0;
+  let even = 0;
+
+  num_list.map((e, i) => (i % 2 === 0 ? (odd += e) : (even += e)));
+
+  if (odd === even) {
+    return even;
+  } else {
+    return Math.max(odd, even);
   }
-  return oddSum > evenSum ? oddSum : evenSum;
 }
