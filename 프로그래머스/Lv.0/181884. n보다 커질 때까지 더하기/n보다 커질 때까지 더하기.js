@@ -1,10 +1,3 @@
-function solution(numbers, n) {
-  let answer = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    answer += numbers[i];
-    if (answer > n) {
-      break;
-    }
-  }
-  return answer
-}
+const solution = (number, n) => {
+  return number.reduce((a, b) => (a <= n ? a + b : a));
+};
