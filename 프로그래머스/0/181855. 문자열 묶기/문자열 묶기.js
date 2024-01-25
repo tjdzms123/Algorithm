@@ -8,13 +8,7 @@ function solution(strArr) {
     return result;
   }, {});
 
-  const resultArray = Object.values(groupedByLength).filter(
-    group => group.length > 1
-  );
-  const maxLengthGroup = resultArray.reduce(
-    (max, group) => (group.length > max.length ? group : max),
-    []
-  );
+  const groupSizes = Object.values(groupedByLength).map(group => group.length);
 
-  return maxLengthGroup.length
+  return Math.max(...groupSizes)
 }
