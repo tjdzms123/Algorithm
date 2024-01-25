@@ -1,14 +1,10 @@
 function solution(strArr) {
-  const groupedByLength = strArr.reduce((result, str) => {
-    const len = str.length;
-    if (!result[len]) {
-      result[len] = [];
+    const groupSizes = {};
+
+    for (const str of strArr) {
+        const len = str.length;
+        groupSizes[len] = (groupSizes[len] || 0) + 1;
     }
-    result[len].push(str);
-    return result;
-  }, {});
 
-  const groupSizes = Object.values(groupedByLength).map(group => group.length);
-
-  return Math.max(...groupSizes)
+    return Math.max(...Object.values(groupSizes));
 }
