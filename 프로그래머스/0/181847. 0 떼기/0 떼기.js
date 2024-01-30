@@ -1,3 +1,3 @@
 function solution(n_str) {
-  return n_str.replace(/^(?!0+$)0+/, '');
+  return parseInt(n_str).toString()
 }
